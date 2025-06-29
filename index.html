@@ -17,13 +17,14 @@
   <footer>
     <p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p>
   </footer>
+<script src="scripts/products-1.js"></script>>
+<script src="scripts/medifix.js"></script>
 
-  <script src="scripts/products-1.js"></script>
+<script>
+  const container = document.getElementById('product-container');
 
-  <script>
-    const container = document.getElementById('product-container');
-
-    products.forEach(product => {
+  validateProducts(products).then(validatedProducts => {
+    validatedProducts.forEach(product => {
       const card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML = `
@@ -31,9 +32,14 @@
         <h3>${product.title}</h3>
         <p>${product.price}</p>
         <a href="${product.url}" target="_blank">Buy Now</a>
+        ${product.note ? `<p style="color: red;">${product.note}</p>` : ''}
       `;
       container.appendChild(card);
     });
+  });
+</script>
+
+
   </script>
 </body>
 </html>
