@@ -10,8 +10,24 @@
     <h1>MediSmoke™ Superstore</h1>
     <p>Over 1000 cannabis accessories — affiliate powered</p>
   </header>
-  <main id="product-grid"></main>
+  <main id="product-container"></main>
   <footer><p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p></footer>
   <script src="scripts/loader.js"></script>
+  <script src="scripts/products-1.js"></script>
+<script>
+  const container = document.getElementById('product-container');
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.title}">
+      <h3>${product.title}</h3>
+      <p>${product.price}</p>
+      <a href="${product.url}" target="_blank">Buy Now</a>
+    `;
+    container.appendChild(card);
+  });
+</script>
+
 </body>
 </html>
