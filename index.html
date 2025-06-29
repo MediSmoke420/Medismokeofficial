@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MediSmoke™ Superstore</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .product-card {
+      background: #222;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00ff99;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,29 +44,50 @@
   <footer>
     <p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p>
   </footer>
-<script src="scripts/products-1.js"></script>>
-<script src="scripts/medifix.js"></script>
 
-<script>
-  const container = document.getElementById('product-container');
+  <script>
+    const affiliateTag = 'amazon06014-21'; // ✅ Your confirmed Amazon affiliate tag
 
-  validateProducts(products).then(validatedProducts => {
-    validatedProducts.forEach(product => {
+    const products = [
+      {
+        title: "Herb Grinder 4-Piece",
+        price: "£12.99",
+        image: "https://m.media-amazon.com/images/I/71s6r4MLYzL._AC_SL1500_.jpg",
+        asin: "B07ZQ3K6P3"
+      },
+      {
+        title: "RAW Classic Rolling Papers",
+        price: "£1.79",
+        image: "https://m.media-amazon.com/images/I/61uZWjIsrxL._AC_SL1500_.jpg",
+        asin: "B004L4BE9Q"
+      },
+      {
+        title: "Glass Bong 22cm",
+        price: "£24.95",
+        image: "https://m.media-amazon.com/images/I/61gXlD7RHQL._AC_SL1000_.jpg",
+        asin: "B07NXY7T5B"
+      },
+      {
+        title: "Isopropyl Alcohol 99.9%",
+        price: "£9.99",
+        image: "https://m.media-amazon.com/images/I/51vQFdGavML._AC_SL1000_.jpg",
+        asin: "B075FX49DK"
+      }
+    ];
+
+    const container = document.getElementById('product-container');
+
+    products.forEach(product => {
       const card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML = `
         <img src="${product.image}" alt="${product.title}" />
         <h3>${product.title}</h3>
         <p>${product.price}</p>
-        <a href="${product.url}" target="_blank">Buy Now</a>
-        ${product.note ? `<p style="color: red;">${product.note}</p>` : ''}
+        <a href="https://www.amazon.co.uk/dp/${product.asin}/?tag=${affiliateTag}" target="_blank">Buy Now</a>
       `;
       container.appendChild(card);
     });
-  });
-</script>
-
-
   </script>
 </body>
 </html>
