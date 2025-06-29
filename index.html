@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MediSmoke™ Superstore</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background: #111;
@@ -14,30 +13,42 @@
       padding: 0;
       text-align: center;
     }
-
     header, footer {
       padding: 20px;
       background-color: #222;
     }
-
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
     .product-card {
       background: #1e1e1e;
       border: 1px solid #333;
       border-radius: 10px;
-      margin: 20px auto;
-      max-width: 300px;
+      width: 300px;
       padding: 15px;
+      box-shadow: 0 0 10px rgba(0,255,153,0.2);
     }
-
     .product-card img {
       width: 100%;
       border-radius: 8px;
     }
-
-    a {
+    .product-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .product-card p {
+      margin: 5px 0 10px;
+    }
+    .product-card a {
       color: #00ff99;
       text-decoration: none;
       font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -48,7 +59,9 @@
     <p>Over 1000 cannabis accessories – affiliate powered</p>
   </header>
 
-  <main id="product-container"></main>
+  <main>
+    <div class="grid" id="product-container"></div>
+  </main>
 
   <footer>
     <p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p>
@@ -89,7 +102,6 @@
     ];
 
     const container = document.getElementById('product-container');
-
     products.forEach(product => {
       const card = document.createElement('div');
       card.className = 'product-card';
@@ -97,7 +109,7 @@
         <img src="${product.image}" alt="${product.title}" />
         <h3>${product.title}</h3>
         <p>${product.price}</p>
-        <a href="${product.url}" target="_blank">Buy Now</a>
+        <a href="${product.url}" target="_blank">Buy on Amazon</a>
       `;
       container.appendChild(card);
     });
@@ -105,4 +117,3 @@
 
 </body>
 </html>
-
