@@ -38,7 +38,157 @@
       { title: "PARACITY 8\" Glass Recycler Bong", price: "£29.99", image: "https://m.media-amazon.com/images/I/41paracity.jpg", asin: "B0BTBMCBKC" },
       { title: "Raw Small Metal Tray", price: "£7.99", image: "https://m.media-amazon.com/images/I/41smalltray.jpg", asin: "B00DO05418" },
       { title: "Poké Ball Herb Grinder (55 mm)", price: "£11.49", image: "https://m.media-amazon.com/images/I/41pokeball.jpg", asin: "B01KZLZ3BE" },
-      { title: "UkGlass Magnetic Rolling Tray Kit", price: "£13.99", image: "https://m.media-amazon.com/images/I/41ukmagnet.jpg", asin: "B08GY46GXM" }
+      { title: "UkGlass Magnetic Rolling Tray Kit", price: "£13.99", image: "https://m.media-amazon.com/images/I/41ukmagnet.jpg", asin: "B08GY46GXM" },
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediSmoke™ Superstore</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header, footer {
+      padding: 20px;
+      background-color: #222;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      width: 300px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,255,153,0.2);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .product-card p {
+      margin: 5px 0 10px;
+    }
+    .product-card a {
+      color: #00ff99;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MediSmoke™ Superstore</h1>
+    <p>Over 1000 cannabis accessories – affiliate powered</p>
+  </header>
+
+  <main>
+    <div class="grid" id="product-container"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        title: "Anpro Premium Aluminium Herb Grinder",
+        price: "£12.99",
+        image: "https://m.media-amazon.com/images/I/61y5zOT6cNL._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B01KXC7V7Y?tag=amazon06014-21"
+      },
+      {
+        title: "14.5mm Glass Bong Bowl by bongbongbong",
+        price: "£9.99",
+        image: "https://m.media-amazon.com/images/I/61dZAkXqXL._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B09LTLZ8FS?tag=amazon06014-21"
+      },
+      {
+        title: "REANICE Recycler Glass Bong – 10.5\"",
+        price: "£49.99",
+        image: "https://m.media-amazon.com/images/I/61w6F1JSOHL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B01LYAA5OX?tag=amazon06014-21"
+      },
+      {
+        title: "PPpanda Zinc Herb Grinder (4-layer)",
+        price: "£7.99",
+        image: "https://m.media-amazon.com/images/I/71yd0OjzHML._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B076B1GNFM?tag=amazon06014-21"
+      },
+      {
+        title: "Electric Rechargeable Herb Grinder 1100 mAh",
+        price: "£29.99",
+        image: "https://m.media-amazon.com/images/I/81lZt+K7-uL._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B08FT65Z7H?tag=amazon06014-21"
+      },
+      {
+        title: "Tectonic9 Auto Electric Grinder",
+        price: "£34.99",
+        image: "https://m.media-amazon.com/images/I/81+8s6-1sCL._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B07XW6XWM7?tag=amazon06014-21"
+      },
+      {
+        title: "Spespo Zinc Alloy Grinder Set (4‑piece)",
+        price: "£11.49",
+        image: "https://m.media-amazon.com/images/I/61GR1nEwtXL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B09PH3YN2Y?tag=amazon06014-21"
+      },
+      {
+        title: "Mini Beaker Bong with Percolator (14.5 mm)",
+        price: "£22.99",
+        image: "https://m.media-amazon.com/images/I/61GR1nEwtXL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B08TLR4RMK?tag=amazon06014-21"
+      },
+      {
+        title: "Glass Bong Bowl Spare 10 mm",
+        price: "£8.49",
+        image: "https://m.media-amazon.com/images/I/61GR1nEwtXL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B08514FMVZ?tag=amazon06014-21"
+      },
+      {
+        title: "Glass Bong Bowl Spare 14 mm x2",
+        price: "£8.99",
+        image: "https://m.media-amazon.com/images/I/61GR1nEwtXL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B0BRWX398N?tag=amazon06014-21"
+      }
+    ];
+
+    const cont = document.getElementById("product-container");
+    products.forEach(p => {
+      const el = document.createElement("div");
+      el.className = "product-card";
+      el.innerHTML = `
+        <img src="${p.image}" alt="${p.title}" />
+        <h3>${p.title}</h3>
+        <p>${p.price}</p>
+        <a href="${p.url}" target="_blank">Buy on Amazon</a>
+      `;
+      cont.appendChild(el);
+    });
+  </script>
+
+</body>
+</html>
+
     ];
 
     const container = document.getElementById('product-container');
