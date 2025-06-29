@@ -1,0 +1,26 @@
+async function isLinkLive(url) {
+  try {
+    const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+    return response.ok || response.type === 'opaque'; // allow Amazon redirect
+  } catch (err) {
+    return false;
+  }
+}
+
+async function validateProducts(products) {
+  const validated = [];
+  for (const product of products) {
+    const valid = await isLinkLive(product.url);
+    if (!valid) {
+      validated.push({
+        ...product,
+        url: "#",
+        title: product.title + " ⚠️",
+        note: "Product not available",
+      });
+    } else {
+      validated.push(product);
+    }
+  }
+  return validated;
+}
