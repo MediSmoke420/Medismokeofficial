@@ -5,51 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MediSmoke™ Superstore</title>
   <style>
-    body {
-      background: #111;
-      color: #fff;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header, footer {
-      padding: 20px;
-      background-color: #222;
-    }
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .product-card {
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 10px;
-      width: 300px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(0,255,153,0.2);
-    }
-    .product-card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .product-card h3 {
-      margin: 10px 0 5px;
-      font-size: 18px;
-    }
-    .product-card p {
-      margin: 5px 0 10px;
-    }
-    .product-card a {
-      color: #00ff99;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 10px;
-    }
+    body { background: #111; color: #fff; font-family: sans-serif; margin: 0; padding: 0; text-align: center; }
+    header, footer { padding: 20px; background-color: #222; }
+    .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+    .product-card { background: #1e1e1e; border: 1px solid #333; border-radius: 10px; width: 300px; padding: 15px; }
+    .product-card img { width: 100%; border-radius: 8px; }
+    .product-card h3 { margin: 10px 0 5px; font-size: 18px; }
+    .product-card p { margin: 5px 0 10px; }
+    .product-card a { color: #00ff99; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -59,57 +22,35 @@
     <p>Over 1000 cannabis accessories – affiliate powered</p>
   </header>
 
-  <main>
-    <div class="grid" id="product-container"></div>
-  </main>
+  <main><div class="grid" id="product-container"></div></main>
 
-  <footer>
-    <p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p>
-  </footer>
+  <footer><p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p></footer>
 
   <script>
+    const affiliateTag = 'amazon06014-21';
     const products = [
-      {
-        title: "RAW Classic King Size Slim Rolling Papers",
-        price: "£6.49",
-        image: "https://m.media-amazon.com/images/I/81lZt+K7-uL._AC_SL1500_.jpg",
-        url: "https://www.amazon.co.uk/dp/B0051QVF9U?tag=amazon06014-21"
-      },
-      {
-        title: "Herb Grinder with Pollen Catcher",
-        price: "£10.99",
-        image: "https://m.media-amazon.com/images/I/71yd0OjzHML._AC_SL1500_.jpg",
-        url: "https://www.amazon.co.uk/dp/B07RYZQX2T?tag=amazon06014-21"
-      },
-      {
-        title: "Smell Proof Pouch with Lock",
-        price: "£15.49",
-        image: "https://m.media-amazon.com/images/I/81+8s6-1sCL._AC_SL1500_.jpg",
-        url: "https://www.amazon.co.uk/dp/B085H1HZ9T?tag=amazon06014-21"
-      },
-      {
-        title: "Glass Bong with Percolator",
-        price: "£28.99",
-        image: "https://m.media-amazon.com/images/I/61w6F1JSOHL._AC_SL1000_.jpg",
-        url: "https://www.amazon.co.uk/dp/B08V94NSHK?tag=amazon06014-21"
-      },
-      {
-        title: "Rolling Tray Set with Accessories",
-        price: "£19.99",
-        image: "https://m.media-amazon.com/images/I/61GR1nEwtXL._AC_SL1000_.jpg",
-        url: "https://www.amazon.co.uk/dp/B08DK5R7VJ?tag=amazon06014-21"
-      }
+      { title: "bongbongbong Glass Bong (26 cm)", price: "£34.99", image: "https://m.media-amazon.com/images/I/41xyzexample.jpg", asin: "B09LTLZ8FS" },
+      { title: "RAW Metal Rolling Tray (Medium)", price: "£9.99", image: "https://m.media-amazon.com/images/I/41rawtray.jpg", asin: "B008MAB4S2" },
+      { title: "Spespo Herb Grinder (4‑piece)", price: "£12.49", image: "https://m.media-amazon.com/images/I/41spespogrinder.jpg", asin: "B09PH2D5GS" },
+      { title: "Blazed Aluminium Grinder (Large)", price: "£14.99", image: "https://m.media-amazon.com/images/I/41blazed.jpg", asin: "B0BGFWTTZ8" },
+      { title: "UkGlass Rolling Tray (Large)", price: "£5.12", image: "https://m.media-amazon.com/images/I/41ukglasstray.jpg", asin: "B09LVM2LQK" },
+      { title: "Zactly 9‑in‑1 Rolling Kit Box", price: "£24.99", image: "https://m.media-amazon.com/images/I/41zactlybox.jpg", asin: "B0BKWVDHGL" },
+      { title: "PARACITY 8\" Glass Recycler Bong", price: "£29.99", image: "https://m.media-amazon.com/images/I/41paracity.jpg", asin: "B0BTBMCBKC" },
+      { title: "Raw Small Metal Tray", price: "£7.99", image: "https://m.media-amazon.com/images/I/41smalltray.jpg", asin: "B00DO05418" },
+      { title: "Poké Ball Herb Grinder (55 mm)", price: "£11.49", image: "https://m.media-amazon.com/images/I/41pokeball.jpg", asin: "B01KZLZ3BE" },
+      { title: "UkGlass Magnetic Rolling Tray Kit", price: "£13.99", image: "https://m.media-amazon.com/images/I/41ukmagnet.jpg", asin: "B08GY46GXM" }
     ];
 
     const container = document.getElementById('product-container');
-    products.forEach(product => {
+    products.forEach(p => {
+      const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
       const card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML = `
-        <img src="${product.image}" alt="${product.title}" />
-        <h3>${product.title}</h3>
-        <p>${product.price}</p>
-        <a href="${product.url}" target="_blank">Buy on Amazon</a>
+        <img src="${p.image}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <p>${p.price}</p>
+        <a href="${url}" target="_blank">Buy on Amazon</a>
       `;
       container.appendChild(card);
     });
