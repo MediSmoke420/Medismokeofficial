@@ -2,31 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MediSmoke™ Superstore</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      background-color: #111;
+      background: #111;
       color: #fff;
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
       text-align: center;
+    }
+
+    header, footer {
       padding: 20px;
+      background-color: #222;
     }
+
     .product-card {
-      background: #222;
-      padding: 15px;
-      margin: 10px auto;
+      background: #1e1e1e;
+      border: 1px solid #333;
       border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+      margin: 20px auto;
+      max-width: 300px;
+      padding: 15px;
     }
-    img {
-      max-width: 100%;
-      border-radius: 5px;
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
     }
+
     a {
-      display: inline-block;
-      margin-top: 10px;
       color: #00ff99;
       text-decoration: none;
       font-weight: bold;
@@ -34,6 +42,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>MediSmoke™ Superstore</h1>
     <p>Over 1000 cannabis accessories – affiliate powered</p>
@@ -46,32 +55,36 @@
   </footer>
 
   <script>
-    const affiliateTag = 'amazon06014-21'; // ✅ Your confirmed Amazon affiliate tag
-
     const products = [
       {
-        title: "Herb Grinder 4-Piece",
-        price: "£12.99",
-        image: "https://m.media-amazon.com/images/I/71s6r4MLYzL._AC_SL1500_.jpg",
-        asin: "B07ZQ3K6P3"
+        title: "RAW Classic King Size Slim Rolling Papers",
+        price: "£6.49",
+        image: "https://m.media-amazon.com/images/I/81lZt+K7-uL._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B0051QVF9U?tag=amazon06014-21"
       },
       {
-        title: "RAW Classic Rolling Papers",
-        price: "£1.79",
-        image: "https://m.media-amazon.com/images/I/61uZWjIsrxL._AC_SL1500_.jpg",
-        asin: "B004L4BE9Q"
+        title: "Herb Grinder with Pollen Catcher",
+        price: "£10.99",
+        image: "https://m.media-amazon.com/images/I/71yd0OjzHML._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B07RYZQX2T?tag=amazon06014-21"
       },
       {
-        title: "Glass Bong 22cm",
-        price: "£24.95",
-        image: "https://m.media-amazon.com/images/I/61gXlD7RHQL._AC_SL1000_.jpg",
-        asin: "B07NXY7T5B"
+        title: "Smell Proof Pouch with Lock",
+        price: "£15.49",
+        image: "https://m.media-amazon.com/images/I/81+8s6-1sCL._AC_SL1500_.jpg",
+        url: "https://www.amazon.co.uk/dp/B085H1HZ9T?tag=amazon06014-21"
       },
       {
-        title: "Isopropyl Alcohol 99.9%",
-        price: "£9.99",
-        image: "https://m.media-amazon.com/images/I/51vQFdGavML._AC_SL1000_.jpg",
-        asin: "B075FX49DK"
+        title: "Glass Bong with Percolator",
+        price: "£28.99",
+        image: "https://m.media-amazon.com/images/I/61w6F1JSOHL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B08V94NSHK?tag=amazon06014-21"
+      },
+      {
+        title: "Rolling Tray Set with Accessories",
+        price: "£19.99",
+        image: "https://m.media-amazon.com/images/I/61GR1nEwtXL._AC_SL1000_.jpg",
+        url: "https://www.amazon.co.uk/dp/B08DK5R7VJ?tag=amazon06014-21"
       }
     ];
 
@@ -84,10 +97,12 @@
         <img src="${product.image}" alt="${product.title}" />
         <h3>${product.title}</h3>
         <p>${product.price}</p>
-        <a href="https://www.amazon.co.uk/dp/${product.asin}/?tag=${affiliateTag}" target="_blank">Buy Now</a>
+        <a href="${product.url}" target="_blank">Buy Now</a>
       `;
       container.appendChild(card);
     });
   </script>
+
 </body>
 </html>
+
