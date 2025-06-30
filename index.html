@@ -28,8 +28,10 @@
 
   <script>
     const affiliateTag = 'amazon06014-21';
-    const products = [
-      { title: "bongbongbong Glass Bong (26 cm)", price: "£34.99", image: "https://m.media-amazon.com/images/I/41xyzexample.jpg", asin: "B09LTLZ8FS" },
+
+  // === Product List ===
+  let products = [
+      { title: "bongbongbong Glass Bong (26 cm)", price: "£19.99", image: "https://m.media-amazon.com/images/I/41xyzexample.jpg", asin: "B09LTLZ8FS" },
       { title: "RAW Metal Rolling Tray (Medium)", price: "£9.99", image: "https://m.media-amazon.com/images/I/41rawtray.jpg", asin: "B008MAB4S2" },
       { title: "Spespo Herb Grinder (4‑piece)", price: "£12.49", image: "https://m.media-amazon.com/images/I/41spespogrinder.jpg", asin: "B09PH2D5GS" },
       { title: "Blazed Aluminium Grinder (Large)", price: "£14.99", image: "https://m.media-amazon.com/images/I/41blazed.jpg", asin: "B0BGFWTTZ8" },
@@ -253,31 +255,46 @@
 
     ];
 
-    const container = document.getElementById('product-container');
-    products.forEach(p => {
-      const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
-        <h3>${p.title}</h3>
-        <p>${p.price}</p>
-        <a href="${url}" target="_blank">Buy on Amazon</a>
-      `;
-      container.appendChild(card);
-    });
-    // === MediBrain Live Checker ===
-const MediBrain = {
-  affiliateTag: affiliateTag,
-  scan: (products) => {
-    products.forEach((p, i) => {
-      const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
-      fetch(url, { method: 'HEAD', mode: 'no-cors' })
-        .then(() => console.log(`✅ Product OK: ${p.title}`))
-        .catch(() => {
-          console.warn(`❌ MediBrain Alert: Product ${i + 1} "${p.title}" might be unavailable.`);
-          alert(`⚠️ MediBrain Warning:\n"${p.title}" may be broken or missing.\nASIN: ${p.asin}`);
-          MediBrain.scan(products);
+// === Deduplicate by ASIN ===
+  const seenAsins = new Set();
+  products = products.filter(p => {
+    if (seenAsins.has(p.asin)) return false;
+    seenAsins.add(p.asin);
+    return true;
+  });
+
+  // === Render Products ===
+  const container = document.getElementById('product-container');
+  products.forEach(p => {
+    const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.title}">
+      <h3>${p.title}</h3>
+      <p>${p.price}</p>
+      <a href="${url}" target="_blank">Buy on Amazon</a>
+    `;
+    container.appendChild(card);
+  });
+
+  // === MediBrain Live ASIN Checker ===
+  const MediBrain = {
+    scan: (items) => {
+      items.forEach((p, i) => {
+        const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
+        fetch(url, { method: 'HEAD', mode: 'no-cors' })
+          .then(() => console.log(`✅ Product OK: ${p.title}`))
+          .catch(() => {
+            console.warn(`❌ MediBrain Alert: ${p.title} may be broken or missing`);
+            alert(`⚠️ MediBrain Warning:\n"${p.title}" may be unavailable.\nASIN: ${p.asin}`);
+          });
+      });
+    }
+  };
+
+  MediBrain.scan(products);
+</script>
 
         });
     });
