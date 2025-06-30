@@ -266,6 +266,26 @@
       `;
       container.appendChild(card);
     });
+    // === MediBrain Live Checker ===
+const MediBrain = {
+  affiliateTag: affiliateTag,
+  scan: (products) => {
+    products.forEach((p, i) => {
+      const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
+      fetch(url, { method: 'HEAD', mode: 'no-cors' })
+        .then(() => console.log(`✅ Product OK: ${p.title}`))
+        .catch(() => {
+          console.warn(`❌ MediBrain Alert: Product ${i + 1} "${p.title}" might be unavailable.`);
+          alert(`⚠️ MediBrain Warning:\n"${p.title}" may be broken or missing.\nASIN: ${p.asin}`);
+          MediBrain.scan(products);
+
+        });
+    });
+  }
+};
+
+MediBrain.scan(products);
+
   </script>
 
 </body>
