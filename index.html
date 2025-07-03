@@ -1,96 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MediSmoke™ Superstore</title>
-  <style>
-    body { background: #111; color: #fff; font-family: sans-serif; margin: 0; padding: 0; text-align: center; }
-    header, footer { padding: 20px; background-color: #222; }
-    .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
-    .product-card { background: #1e1e1e; border: 1px solid #333; border-radius: 10px; width: 300px; padding: 15px; }
-    .product-card img { width: 100%; border-radius: 8px; }
-    .product-card h3 { margin: 10px 0 5px; font-size: 18px; }
-    .product-card p { margin: 5px 0 10px; }
-    .product-card a { color: #00ff99; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Shop</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1>My Online Shop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <h1>MediSmoke™ Superstore</h1>
-    <p>Over 1000 cannabis accessories – affiliate powered</p>
-  </header>
+    <section id="home">
+        <h2>Welcome to My Online Shop</h2>
+        <p>Shop the best products with the best deals!</p>
+    </section>
 
-  <main><div class="grid" id="product-container"></div></main>
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <!-- Example product 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$99.99</p>
+                <button onclick="buyNow('https://affiliate-link.com/product1')">Buy Now</button>
+            </div>
+            <!-- Example product 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$149.99</p>
+                <button onclick="buyNow('https://affiliate-link.com/product2')">Buy Now</button>
+            </div>
+            <!-- Add more products as needed -->
+        </div>
+    </section>
 
-  <footer><p>&copy; 2025 MediSmoke™ | Legal Accessories Only</p></footer>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out!</p>
+    </section>
 
-  <script>
-    const affiliateTag = 'amazon06014-21';
+    <footer>
+        <p>&copy; 2025 My Online Shop. All Rights Reserved.</p>
+    </footer>
 
-  // === Product List ===
-  let products = [
-      { title: "bongbongbong Glass Bong (26 cm)", price: "£19.99", image: "https://m.media-amazon.com/images/I/41xyzexample.jpg", asin: "B09LTLZ8FS" },
-      { title: "RAW Metal Rolling Tray (Medium)", price: "£9.99", image: "https://m.media-amazon.com/images/I/41rawtray.jpg", asin: "B008MAB4S2" },
-      { title: "Spespo Herb Grinder (4‑piece)", price: "£12.49", image: "https://m.media-amazon.com/images/I/41spespogrinder.jpg", asin: "B09PH2D5GS" },
-      { title: "Blazed Aluminium Grinder (Large)", price: "£14.99", image: "https://m.media-amazon.com/images/I/41blazed.jpg", asin: "B0BGFWTTZ8" },
-      { title: "UkGlass Rolling Tray (Large)", price: "£5.12", image: "https://m.media-amazon.com/images/I/41ukglasstray.jpg", asin: "B09LVM2LQK" },
-      { title: "Zactly 9‑in‑1 Rolling Kit Box", price: "£24.99", image: "https://m.media-amazon.com/images/I/41zactlybox.jpg", asin: "B0BKWVDHGL" },
-      { title: "PARACITY 8\" Glass Recycler Bong", price: "£29.99", image: "https://m.media-amazon.com/images/I/41paracity.jpg", asin: "B0BTBMCBKC" },
-      { title: "Raw Small Metal Tray", price: "£7.99", image: "https://m.media-amazon.com/images/I/41smalltray.jpg", asin: "B00DO05418" },
-      { title: "Poké Ball Herb Grinder (55 mm)", price: "£11.49", image: "https://m.media-amazon.com/images/I/41pokeball.jpg", asin: "B01KZLZ3BE" },
-      { title: "UkGlass Magnetic Rolling Tray Kit", price: "£13.99", image: "https://m.media-amazon.com/images/I/41ukmagnet.jpg", asin: "B08GY46GXM" },
-      { title: "Anpro Premium Aluminium Herb Grinder", price: "£12.99", image: "https://m.media-amazon.com/images/I/61y5zOT6cNL._AC_SL1500_.jpg", asin: "B01KXC7V7Y" },
- { title: "VapeMaster Skywalker V3 Dry Herb Vaporizer", price: "£54.99", image: "https://m.media-amazon.com/images/I/61GTO11NHFL._AC_SL1200_.jpg", asin: "B0C9YCHZTD" },
-{ title: "Pathfinder V2 Dry Herb Vaporizer", price: "£79.99", image: "https://m.media-amazon.com/images/I/61cUwXQe0zL._AC_SL1000_.jpg", asin: "B07F9Z9GY2" },
-{ title: "Black Widow 2-in-1 Herb & Concentrate Vape", price: "£74.99", image: "https://m.media-amazon.com/images/I/61lV0nIHm1L._AC_SL1000_.jpg", asin: "B07F7BS3GP" },
-{ title: "Nebula Fuzion Portable Dry Herb Vaporizer", price: "£69.99", image: "https://m.media-amazon.com/images/I/61V06Z9QOIL._AC_SL1200_.jpg", asin: "B082FJVRTR" },
-{ title: "BLK Black Mamba Dry Herb Vaporizer (2024)", price: "£59.99", image: "https://m.media-amazon.com/images/I/61UuFlxixjL._AC_SL1200_.jpg", asin: "B0CVJ448FF" }
-
-
-   
-
-// === Deduplicate by ASIN ===
-  const seenAsins = new Set();
-  products = products.filter(p => {
-    if (seenAsins.has(p.asin)) return false;
-    seenAsins.add(p.asin);
-    return true;
-  });
-
-  // === Render Products ===
-  const container = document.getElementById('product-container');
-  products.forEach(p => {
-    const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <img src="${p.image}" alt="${p.title}">
-      <h3>${p.title}</h3>
-      <p>${p.price}</p>
-      <a href="${url}" target="_blank">Buy on Amazon</a>
-    `;
-    container.appendChild(card);
-  });
-
-  // === MediBrain Live ASIN Checker ===
-  const MediBrain = {
-    scan: (items) => {
-      items.forEach((p, i) => {
-        const url = `https://www.amazon.co.uk/dp/${p.asin}/?tag=${affiliateTag}`;
-        fetch(url, { method: 'HEAD', mode: 'no-cors' })
-          .then(() => console.log(`✅ Product OK: ${p.title}`))
-          .catch(() => {
-            console.warn(`❌ MediBrain Alert: ${p.title} may be broken or missing`);
-            alert(`⚠️ MediBrain Warning:\n"${p.title}" may be unavailable.\nASIN: ${p.asin}`);
-          });
-      });
-    }
-  };
-
-  MediBrain.scan(products);
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
